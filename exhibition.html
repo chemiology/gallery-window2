@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Gallery Window – Exhibition</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Exhibition 전용 CSS -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/exhibition.css">
+</head>
+
+<body>
+
+<div class="viewer">
+  <img id="exhibition-image" src="" alt="">
+</div>
+
+  <!-- 컨트롤 패널 -->
+  <div class="control-panel">
+    <div class="control-toggle">⚙</div>
+    <div class="control-box" style="display:none;">
+      <label>
+        Viewing Mode<br>
+        <input type="radio" name="mode" value="auto" checked> Auto
+        <input type="radio" name="mode" value="manual"> Manual
+      </label>
+
+      <label>
+        Slide Speed
+        <input type="range" id="speed" min="3" max="20" value="10">
+      </label>
+
+      <label>
+        Volume
+        <input type="range" id="volume" min="0" max="1" step="0.01" value="0.5">
+      </label>
+
+      <button id="mute">Mute</button>
+    </div>
+  </div>
+
+<p class="audio-hint">
+  설정에서 음향을 켜세요.<br>
+  화면을 터치하면 전시의 숨이 시작됩니다.
+</p>
+
+  <!-- 방명록 (전시화면용, 하나만) -->
+  <section class="exhibition-guestbook">
+  <h3 class="guestbook-title">방명록</h3>
+
+  <form 
+    action="https://script.google.com/macros/s/AKfycbxosBRSAcNGTRHQXIm6EIVQKEnFhFlK4jMGpIDFnccUfwXcLdRZO2vKn3GsmQvMjo8raQ/exec"
+    method="GET"
+    target="hidden_iframe"
+  >
+    <input type="hidden" name="exhibition_id">
+    <input type="hidden" name="page" value="viewer">
+
+    <input
+      type="text"
+      name="message"
+      placeholder="이 전시에 대한 한 줄 감상"
+      maxlength="80"
+      required
+    >
+
+    <button type="submit">남기기</button>
+  </form>
+
+  <iframe name="hidden_iframe" style="display:none;"></iframe>
+</section>
+
+
+  <!-- 캡션 -->
+  <div class="caption" id="caption"></div>
+
+<!-- Back to Home (Exhibition Hall) -->
+<a href="index.html" class="back-home-exhibition">
+  ← Home
+</a>
+
+  <!-- JS -->
+  <script src="assets/js/exhibition.js"></script>
+
+</body>
+</html>
