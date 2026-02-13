@@ -3,7 +3,7 @@
     {
       "id": "hall01",
       "title": "Main Hall",
-      "exhibitions": []
+      "exhibitions": ["test-exhibition"]
     },
     {
       "id": "hall02",
