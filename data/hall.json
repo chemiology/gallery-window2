@@ -1,0 +1,24 @@
+{
+  "halls": [
+    {
+      "id": "hall01",
+      "title": "Main Hall",
+      "exhibitions": []
+    },
+    {
+      "id": "hall02",
+      "title": "Guest Hall",
+      "exhibitions": []
+    },
+    {
+      "id": "hall03",
+      "title": "Special Hall",
+      "exhibitions": []
+    },
+    {
+      "id": "hall04",
+      "title": "Archive",
+      "exhibitions": []
+    }
+  ]
+}
