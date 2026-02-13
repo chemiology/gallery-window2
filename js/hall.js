@@ -27,16 +27,24 @@ async function loadHall() {
 
   const list = document.getElementById("exhibitionList");
 
-  if (hall && hall.exhibitions.length > 0) {
-    hall.exhibitions.forEach(ex => {
-      const div = document.createElement("div");
-      div.textContent = ex;
-      div.style.margin = "20px";
-      div.style.fontSize = "20px";
-      list.appendChild(div);
-    });
-  }
+if (hall && hall.exhibitions.length > 0) {
+  hall.exhibitions.forEach(ex => {
+
+    const link = document.createElement("a");
+    link.textContent = ex;
+    link.href = `exhibition.html?id=${ex}`;
+
+    link.style.display = "block";
+    link.style.margin = "20px";
+    link.style.fontSize = "20px";
+    link.style.textDecoration = "none";
+    link.style.cursor = "pointer";
+
+    list.appendChild(link);
+
+  });
 }
+
 
 loadHall();
 
