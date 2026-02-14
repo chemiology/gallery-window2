@@ -112,38 +112,35 @@ function showImage(index) {
   if (!img || images.length === 0) return;
 
   const isLoopReset =
-  (currentIndex === images.length - 1 && index === 0);
+    (currentIndex === images.length - 1 && index === 0);
 
   currentIndex = (index + images.length) % images.length;
 
   if (isLoopReset) {
-    document.querySelector(".viewer").classList.add("loop-dark");
+    const viewer = document.querySelector(".viewer");
+    viewer.classList.add("loop-dark");
     setTimeout(() => {
-      document.querySelector(".viewer").classList.remove("loop-dark");
+      viewer.classList.remove("loop-dark");
     }, 900);
   }
 
+  // ✅ 이미지 전환 연출
   img.classList.remove("visible");
 
   setTimeout(() => {
-    img.src = images[currentIndex];
 
     img.onload = () => {
       img.classList.add("visible");
     };
 
-  }, 150);
+    img.src = images[currentIndex];
 
-
-  img.onload = () => {
-    img.classList.add("visible");
-  };
-
-  img.onload = () => {
-    setTimeout(() => {
+    // 캐시 이미지 대응
+    if (img.complete) {
       img.classList.add("visible");
-    }, 150);
-  };
+    }
+
+  }, 150);
 }
 
 function nextImage() {
