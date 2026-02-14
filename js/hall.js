@@ -22,7 +22,7 @@ const card = document.createElement("div");
 card.className = "hall-card";
 
 card.innerHTML = `
-  <a href="exhibition.html?id=${ex}&hall=${hall.id}">
+    <a href="exhibition.html?id=${ex}&hall=${hall.id}" class="hall-link">
     <img src="assets/posters/${ex}.jpg" alt="${ex}">
     <div style="margin-top:12px; font-size:18px;">
       ${ex}
@@ -38,3 +38,19 @@ list.appendChild(card);
 }
 
 loadHall();
+
+document.addEventListener("click", function(e) {
+
+  const link = e.target.closest(".hall-link");
+  if (!link) return;
+
+  e.preventDefault();
+
+  const fade = document.getElementById("pageFade");
+  fade.classList.add("active");
+
+  setTimeout(() => {
+    window.location.href = link.href;
+  }, 500);
+});
+
