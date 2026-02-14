@@ -57,7 +57,7 @@ body {
   filter: brightness(0.75) blur(2px);
 
   transition:
-    opacity 2.4s ease,
+    opacity 1.2s ease,
     filter 2.0s ease;
 }
 
@@ -523,5 +523,11 @@ body.exhibition-detail .exhibition-text span {
     0 0 25px rgba(255,255,255,0.25),
     0 0 60px rgba(255,255,255,0.15);
   transform: translateX(-50%) scale(1.02);
+}
+
+/* 처음에는 이미지 보이지 않음 */
+.viewer img {
+  opacity: 0;
+  transition: opacity 1.2s ease;
 }
 
