@@ -331,3 +331,9 @@ document.addEventListener("DOMContentLoaded", () => {
     guestbook.classList.remove("active");
   });
 });
+
+const params = new URLSearchParams(location.search);
+const hallId = params.get("hall") || "hall01";
+
+document.getElementById("backHome").href =
+  `hall.html?hall=${hallId}`;
