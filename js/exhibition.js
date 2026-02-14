@@ -124,7 +124,17 @@ function showImage(index) {
   }
 
   img.classList.remove("visible");
-  img.src = images[currentIndex];
+
+  setTimeout(() => {
+    img.src = images[currentIndex];
+
+    img.onload = () => {
+      img.classList.add("visible");
+    };
+
+  }, 150);
+
+
   img.onload = () => {
     img.classList.add("visible");
   };
