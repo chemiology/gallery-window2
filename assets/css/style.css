@@ -673,26 +673,69 @@ body.home .guestbook li {
   margin-bottom: 0.2em;
 }
 
+/* =========================
+   Hall (Exhibition Wall)
+========================= */
+
 .hall-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 40px;
-  max-width: 1200px;
+  max-width: 1100px;
   margin: 60px auto;
+  padding: 0 20px;   /* 좌우 안전 여백 */
+  background: #111;
 }
 
 .hall-card {
   text-align: center;
   transition: transform 0.4s ease;
+  overflow: hidden;  /* 이미지 넘침 방지 */
 }
 
 .hall-card img {
-  width: 100%;
+  width: auto;
+  height: 70vh;          /* 화면 기준 높이 */
+  max-height: 720px;     /* 너무 커지는 것 방지 */
+  display: block;
+  margin: 0 auto;        /* 중앙 정렬 */
+  object-fit: contain;   /* 전체 보이기 */
   border-radius: 8px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.25);
 }
 
 .hall-card:hover {
   transform: translateY(-8px);
+}
+
+/*
+body {
+  background-color: #000;
+  background-image: url("../images/background.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+*/
+
+/* =========================
+   Global Exhibition Space
+========================= */
+.site-background {
+  position: fixed;
+  inset: 0;
+  background-color: #000;
+  background-image: url("../images/background.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  z-index: -2;
+}
+
+.site-background::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.65);
 }
 
