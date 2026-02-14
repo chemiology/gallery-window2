@@ -5,12 +5,11 @@
       "title": "1관",
       "exhibitions": ["avatar_ii"]
     },
-{
-  "id": "hall02",
-  "title": "2관",
-  "exhibitions": ["becoming_tree"]
-}
-
+    {
+      "id": "hall02",
+      "title": "2관",
+      "exhibitions": ["becoming_tree"]
+    },
     {
       "id": "hall03",
       "title": "3관",
