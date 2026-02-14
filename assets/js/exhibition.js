@@ -11,20 +11,14 @@ let autoMode = true;
 let audio = null;
 
 /* -----------------------------------------------------
-   Utility
+   URL Parameters
 ----------------------------------------------------- */
 
-function qs(name) {
-  return new URLSearchParams(window.location.search).get(name);
-}
-
-
-// URL에서 전시 ID 가져오기
 const params = new URLSearchParams(window.location.search);
-const exhibitionId = params.get("id");
 
-// 기본값 설정
-const finalId = exhibitionId || "avatar_ii";
+const exhibitionId = params.get("id") || "avatar_ii";
+const hallId = params.get("hall") || "hall01";
+
 
 const input = document.querySelector('input[name="exhibition_id"]');
 if (input) {
