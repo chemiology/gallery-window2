@@ -19,11 +19,11 @@ const params = new URLSearchParams(window.location.search);
 const exhibitionId = params.get("id") || "avatar_ii";
 const hallId = params.get("hall") || "hall01";
 
-
 const input = document.querySelector('input[name="exhibition_id"]');
 if (input) {
-  input.value = finalId;
+  input.value = exhibitionId;
 }
+
 
 /* -----------------------------------------------------
    Init
@@ -51,8 +51,11 @@ if (exhibitionId) {
 async function loadExhibition(id) {
   try {
 
-    const res = await fetch("assets/config/gallery.json");
+    const res = await fetch("./assets/config/gallery.json")
     const data = await res.json();
+
+    console.log("현재 전시 ID:", exhibitionId);
+    console.log("gallery 데이터:", data);
 
     const exhibition = data.currentExhibitions.find(e => e.id === id);
     if (!exhibition) return;
