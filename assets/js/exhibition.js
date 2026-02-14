@@ -123,31 +123,8 @@ function showImage(index) {
     }, 900);
   }
 
- img.classList.remove("visible");
-
-setTimeout(() => {
-
-  img.onload = () => {
-    img.classList.add("visible");
-  };
-
+  img.classList.remove("visible");
   img.src = images[currentIndex];
-
-  // 캐시 이미지 대응
-  if (img.complete) {
-    img.classList.add("visible");
-  }
-
-}, 150);
-
-
-    img.onload = () => {
-      img.classList.add("visible");
-    };
-
-  }, 150);
-
-
   img.onload = () => {
     img.classList.add("visible");
   };

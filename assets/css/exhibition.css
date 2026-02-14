@@ -61,18 +61,10 @@ body {
     filter 2.0s ease;
 }
 
-  transform: scale(1.04);
-  transition:
-    opacity 1.2s ease,
-    filter 2.0s ease,
-    transform 6s ease-out;
-
 .viewer img.visible {
   opacity: 1;
   filter: brightness(1) blur(0);
-  transform: scale(1);
 }
-
 
 /* ---------- Fade ---------- */
 
