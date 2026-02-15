@@ -132,3 +132,17 @@ function renderHeadlineNotice(notice) {
   container.innerHTML = notice.text;
 }
 
+document.addEventListener("click", function(e) {
+
+  const link = e.target.closest("a[href*='exhibition.html']");
+  if (!link) return;
+
+  e.preventDefault();
+
+  // exhibition → hall 입구로 변경
+  const url = new URL(link.href);
+  const id = url.searchParams.get("id");
+
+  window.location.href = `hall.html?hall=hall01`;
+});
+

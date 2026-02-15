@@ -334,3 +334,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
 document.getElementById("backHome").href =
   `hall.html?hall=${hallId}`;
+
+const backBtn = document.getElementById("backHome");
+
+if (backBtn) {
+
+  // 현재 hall 정보 읽기
+  const params = new URLSearchParams(window.location.search);
+  const hallId = params.get("hall") || "hall01";
+
+  // Home 버튼 목적지 설정
+  backBtn.href = `hall.html?hall=${hallId}`;
+
+  // 페이드 전환
+  backBtn.addEventListener("click", function(e) {
+    e.preventDefault();
+
+    const fade = document.getElementById("pageFade");
+    fade.classList.add("active");
+
+    setTimeout(() => {
+      window.location.href = backBtn.href;
+    }, 500);
+  });
+}
+
